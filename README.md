@@ -34,3 +34,23 @@ The `index.html` file contains the HTML structure for the password generator, in
 - A button for copying the password to the clipboard.
 - A button for viewing the password.
 - A section for generating and copying a backup version of the password.
+
+## New Text Converter Functionality
+
+A new page has been added to convert text to a hyphenated format with the current date appended and copy it to the clipboard.
+
+### Usage Instructions for Text Converter
+
+1. Open the `text-converter.html` file in your web browser.
+2. Enter the text you want to convert in the input field.
+3. Click the "Convert Text" button to convert the text.
+4. Use the "Copy to Clipboard" button to copy the converted text.
+5. Optionally, toggle dark mode using the "Toggle Dark Mode" button.
+
+### Functionality of `text-converter.js`
+
+The `text-converter.js` file contains the following functions:
+
+- `convertText()`: Converts the input text to a hyphenated format with the current date appended.
+- `copyConvertedText()`: Copies the converted text to the clipboard.
+- `toggleDarkMode()`: Toggles dark mode for the text converter page.

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Converter</title>
+    <link rel="stylesheet" href="main.css" type="text/css">
+</head>
+
+<body>
+    <div id="container">
+        <h1>Text Converter</h1>
+        <p>Convert your text to a hyphenated format with the current date appended.</p>
+        <label for="text-input">Enter your text:</label>
+        <input type="text" id="text-input">
+        <div id="buttons">
+            <button onclick="convertText()">Convert Text</button>
+            <button id="copyButton" onclick="copyConvertedText()" disabled>Copy to Clipboard</button>
+        </div>
+        <label id="converted-text-label" for="converted-text">Converted Text:</label><br>
+        <input type="text" id="converted-text" readonly>
+        <button id="darkModeToggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+    </div>
+    <script src="text-converter.js"></script>
+</body>
+
+</html>
