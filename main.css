@@ -1,24 +1,40 @@
+:root {
+  --background: #ffffff;
+  --text: #000000;
+  --input-background: #f0f0f0;
+  --button-background: #4CAF50;
+  --button-text: #ffffff;
+  --container-background: #f9f9f9;
+}
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
+    background-color: var(--background);
+    color: var(--text);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    transition: all 0.3s ease;
 }
+  #container {
+      background-color: var(--container-background);
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+  }
 
-#container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
+  @media screen and (max-width: 768px) {
+      #container {
+          min-height: auto;
+          padding: 10px;
+      }
+  }
 h1 {
     font-size: 24px;
     margin-bottom: 20px;
@@ -42,6 +58,9 @@ h1 {
     border: none;
     outline: none;
     text-align: center;
+    background-color: var(--input-background);
+    color: var(--text);
+    border: 1px solid var(--text);
 }
 
 #backup-version {
@@ -51,6 +70,9 @@ h1 {
     border: none;
     outline: none;
     text-align: center;
+    background-color: var(--input-background);
+    color: var(--text);
+    border: 1px solid var(--text);
 }
 
 #backup-label {
@@ -62,12 +84,35 @@ h1 {
     margin-top: 20px;
 }
 
+input, select {
+  background-color: var(--input-background);
+  color: var(--text);
+  border: 1px solid var(--text);
+}
+
+button {
+  background-color: var(--button-background);
+  color: var(--button-text);
+}
+
+body.dark-mode {
+  --background: #222222;
+  --text: #ffffff;
+  --input-background: #444444;
+  --button-background: #4CAF50;
+  --button-text: #ffffff;
+  --container-background: #333333;
+}
+
+body.dark-mode #container {
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
 button {
     font-size: 16px;
     padding: 10px 20px;
     margin: 0 10px;
-    background-color: #4285f4;
-    color: #fff;
+    background-color: var(--button-background);
+    color: var(--button-text);
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -115,8 +160,11 @@ button:focus {
 
 /* Dark mode styling */
 body.dark-mode {
-    background-color: #121212;
-    color: #ffffff;
+  --background: #333333;
+  --text: #ffffff;
+  --input-background: #555555;
+  --button-background: #4CAF50;
+  --button-text: #ffffff;
 }
 
 #container.dark-mode {
@@ -159,7 +207,6 @@ button.dark-mode:focus {
 h1.dark-mode {
     color: #ffffff;
 }
-
 /* P60f8 */
 #darkModeToggle {
     position: absolute;
@@ -189,4 +236,19 @@ h1.dark-mode {
 /* Pb4c9 */
 .fas.fa-sun {
     color: #f4c542;
+}
+
+.backup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.centered-button {
+    margin-top: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }

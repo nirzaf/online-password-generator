@@ -5,9 +5,7 @@ function generatePassword() {
     const includeUppercase = document.getElementById('include-uppercase').checked;
     const includeLowercase = document.getElementById('include-lowercase').checked;
 
-    const password = generateRandomString(length, includeSpecial, includeNumbers, includeUppercase, includeLowercase);
-
-    document.getElementById('password').value = password;
+    document.getElementById('password').value = generateRandomString(length, includeSpecial, includeNumbers, includeUppercase, includeLowercase);
     document.getElementById('password-label').textContent = 'Password generated';
     document.getElementById('copyButton').textContent = 'Copy to Clipboard';
     document.getElementById('copyButton').disabled = false;
@@ -36,8 +34,7 @@ function generateBackupVersion() {
     const hours = String(today.getHours()).padStart(2, '0');
     const minutes = String(today.getMinutes()).padStart(2, '0');
     const seconds = String(today.getSeconds()).padStart(2, '0');
-    const backupPassword = `backup-version-${year}.${month}.${day}.${hours}.${minutes}.${seconds}`;
-    document.getElementById('backup-version').value = backupPassword;
+    document.getElementById('backup-version').value = `backup-version-${year}.${month}.${day}.${hours}.${minutes}.${seconds}`;
     document.getElementById('backup-label').textContent = 'Backup version generated';
     copyBackupVersionToClipboard();
 }
@@ -111,15 +108,60 @@ function viewPassword() {
     }
 }
 
+const lightTheme = {
+    background: '#ffffff',
+    text: '#000000',
+    inputBackground: '#f0f0f0',
+    buttonBackground: '#4CAF50',
+    buttonText: '#ffffff'
+};
+
+const darkTheme = {
+    background: '#333333',
+    text: '#ffffff',
+    inputBackground: '#555555',
+    buttonBackground: '#4CAF50',
+    buttonText: '#ffffff'
+};
+
+let currentTheme = lightTheme;
+
+const GlobalStyles = styled.createGlobalStyle`
+    body {
+      background-color: ${props => props.theme.background};
+      color: ${props => props.theme.text};
+      transition: all 0.3s ease;
+    }
+
+    input, select {
+      background-color: ${props => props.theme.inputBackground};
+      color: ${props => props.theme.text};
+    }
+
+    button {
+      background-color: ${props => props.theme.buttonBackground};
+      color: ${props => props.theme.buttonText};
+    }
+`;
+
+function applyTheme(theme) {
+    currentTheme = theme;
+    const root = document.documentElement;
+    Object.keys(theme).forEach(key => {
+      root.style.setProperty(`--${key}`, theme[key]);
+    });
+}
+
 function toggleDarkMode() {
     const body = document.body;
-    const darkModeToggle = document.getElementById('darkModeToggle');
     body.classList.toggle('dark-mode');
-    if (body.classList.contains('dark-mode')) {
-        darkModeToggle.classList.remove('fa-moon');
-        darkModeToggle.classList.add('fa-sun');
-    } else {
-        darkModeToggle.classList.remove('fa-sun');
-        darkModeToggle.classList.add('fa-moon');
-    }
+    const isDarkMode = body.classList.contains('dark-mode');
+    document.getElementById('darkModeToggle').className = isDarkMode ? 'fas fa-sun' : 'fas fa-moon';
 }
+
+// Apply initial theme
+applyTheme(lightTheme);
+
+// Render global styles
+const globalStyles = GlobalStyles``;
+document.head.appendChild(globalStyles);

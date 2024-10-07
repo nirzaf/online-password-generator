@@ -1,8 +1,7 @@
 function convertText() {
     const textInput = document.getElementById('text-input').value;
     const currentDate = new Date().toLocaleDateString('en-GB').split('/').reverse().join('-');
-    const convertedText = textInput.split(' ').join('-') + '-' + currentDate;
-    document.getElementById('converted-text').value = convertedText;
+    document.getElementById('converted-text').value = textInput.split(' ').join('-') + '-' + currentDate;
     document.getElementById('copyButton').disabled = false;
 }
 
@@ -21,4 +20,6 @@ function copyConvertedText() {
 function toggleDarkMode() {
     const body = document.body;
     body.classList.toggle('dark-mode');
+    const isDarkMode = body.classList.contains('dark-mode');
+    document.getElementById('darkModeToggle').className = isDarkMode ? 'fas fa-sun' : 'fas fa-moon';
 }
