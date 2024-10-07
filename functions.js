@@ -5,9 +5,7 @@ function generatePassword() {
     const includeUppercase = document.getElementById('include-uppercase').checked;
     const includeLowercase = document.getElementById('include-lowercase').checked;
 
-    const password = generateRandomString(length, includeSpecial, includeNumbers, includeUppercase, includeLowercase);
-
-    document.getElementById('password').value = password;
+    document.getElementById('password').value = generateRandomString(length, includeSpecial, includeNumbers, includeUppercase, includeLowercase);
     document.getElementById('password-label').textContent = 'Password generated';
     document.getElementById('copyButton').textContent = 'Copy to Clipboard';
     document.getElementById('copyButton').disabled = false;
@@ -36,8 +34,7 @@ function generateBackupVersion() {
     const hours = String(today.getHours()).padStart(2, '0');
     const minutes = String(today.getMinutes()).padStart(2, '0');
     const seconds = String(today.getSeconds()).padStart(2, '0');
-    const backupPassword = `backup-version-${year}.${month}.${day}.${hours}.${minutes}.${seconds}`;
-    document.getElementById('backup-version').value = backupPassword;
+    document.getElementById('backup-version').value = `backup-version-${year}.${month}.${day}.${hours}.${minutes}.${seconds}`;
     document.getElementById('backup-label').textContent = 'Backup version generated';
     copyBackupVersionToClipboard();
 }
