@@ -20,4 +20,6 @@ function copyConvertedText() {
 function toggleDarkMode() {
     const body = document.body;
     body.classList.toggle('dark-mode');
+    const isDarkMode = body.classList.contains('dark-mode');
+    document.getElementById('darkModeToggle').className = isDarkMode ? 'fas fa-sun' : 'fas fa-moon';
 }

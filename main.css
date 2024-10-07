@@ -18,18 +18,23 @@ body {
     margin: 0;
     transition: all 0.3s ease;
 }
+  #container {
+      background-color: var(--container-background);
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+  }
 
-#container {
-    background-color: var(--container-background);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
+  @media screen and (max-width: 768px) {
+      #container {
+          min-height: auto;
+          padding: 10px;
+      }
+  }
 h1 {
     font-size: 24px;
     margin-bottom: 20px;
@@ -231,4 +236,19 @@ h1.dark-mode {
 /* Pb4c9 */
 .fas.fa-sun {
     color: #f4c542;
+}
+
+.backup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.centered-button {
+    margin-top: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }

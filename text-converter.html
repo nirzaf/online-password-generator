@@ -6,10 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Text Converter</title>
     <link rel="stylesheet" href="main.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        #darkModeToggle {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+    </style>
 </head>
 
 <body>
     <div id="container">
+        <button id="darkModeToggle" onclick="toggleDarkMode()" class="fas fa-moon"></button>
+        
         <h1>Text Converter</h1>
         <p>Convert your text to a hyphenated format with the current date appended.</p>
         <label for="text-input">Enter your text:</label>
@@ -20,7 +30,7 @@
         </div>
         <label id="converted-text-label" for="converted-text">Converted Text:</label><br>
         <input type="text" id="converted-text" readonly>
-        <button id="darkModeToggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+
     </div>
     <script src="text-converter.js"></script>
 </body>
