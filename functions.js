@@ -108,15 +108,60 @@ function viewPassword() {
     }
 }
 
+const lightTheme = {
+    background: '#ffffff',
+    text: '#000000',
+    inputBackground: '#f0f0f0',
+    buttonBackground: '#4CAF50',
+    buttonText: '#ffffff'
+};
+
+const darkTheme = {
+    background: '#333333',
+    text: '#ffffff',
+    inputBackground: '#555555',
+    buttonBackground: '#4CAF50',
+    buttonText: '#ffffff'
+};
+
+let currentTheme = lightTheme;
+
+const GlobalStyles = styled.createGlobalStyle`
+    body {
+      background-color: ${props => props.theme.background};
+      color: ${props => props.theme.text};
+      transition: all 0.3s ease;
+    }
+
+    input, select {
+      background-color: ${props => props.theme.inputBackground};
+      color: ${props => props.theme.text};
+    }
+
+    button {
+      background-color: ${props => props.theme.buttonBackground};
+      color: ${props => props.theme.buttonText};
+    }
+`;
+
+function applyTheme(theme) {
+    currentTheme = theme;
+    const root = document.documentElement;
+    Object.keys(theme).forEach(key => {
+      root.style.setProperty(`--${key}`, theme[key]);
+    });
+}
+
 function toggleDarkMode() {
     const body = document.body;
-    const darkModeToggle = document.getElementById('darkModeToggle');
     body.classList.toggle('dark-mode');
-    if (body.classList.contains('dark-mode')) {
-        darkModeToggle.classList.remove('fa-moon');
-        darkModeToggle.classList.add('fa-sun');
-    } else {
-        darkModeToggle.classList.remove('fa-sun');
-        darkModeToggle.classList.add('fa-moon');
-    }
+    const isDarkMode = body.classList.contains('dark-mode');
+    document.getElementById('darkModeToggle').className = isDarkMode ? 'fas fa-sun' : 'fas fa-moon';
 }
+
+// Apply initial theme
+applyTheme(lightTheme);
+
+// Render global styles
+const globalStyles = GlobalStyles``;
+document.head.appendChild(globalStyles);

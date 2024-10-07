@@ -9,10 +9,20 @@
     <meta name="keywords" content="Password Generator, Secure Password, Free, Online, Local Processing">
     <link rel="stylesheet" href="main.css" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://unpkg.com/styled-components/dist/styled-components.min.js"></script>
+    <style>
+        #darkModeToggle {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+    </style>
 </head>
 
 <body>
     <div id="container">
+        <button id="darkModeToggle" onclick="toggleDarkMode()" class="fas fa-moon"></button>
+        
         <div id="options-container">
             <h1>Password Generator</h1>
             <p>Generate secure passwords with our free online tool. </p> 
@@ -55,10 +65,11 @@
             </div>
         </div>
 
-        <button id="darkModeToggle" onclick="toggleDarkMode()" class="fas fa-moon"></button>
         <a href="text-converter.html">Go to Text Converter</a>
     </div>
     <script src="functions.js"></script>
 </body>
 
 </html>
+
+
