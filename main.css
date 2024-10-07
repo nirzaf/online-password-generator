@@ -159,3 +159,34 @@ button.dark-mode:focus {
 h1.dark-mode {
     color: #ffffff;
 }
+
+/* P60f8 */
+#darkModeToggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* P60f8 */
+#darkModeToggle:hover {
+    color: #357ae8;
+}
+
+/* P60f8 */
+#darkModeToggle:focus {
+    outline: none;
+}
+
+/* Pb4c9 */
+.fas.fa-moon {
+    color: #4a4d4b;
+}
+
+/* Pb4c9 */
+.fas.fa-sun {
+    color: #f4c542;
+}

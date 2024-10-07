@@ -110,3 +110,16 @@ function viewPassword() {
         document.getElementById('viewPassword').textContent = 'View Password';
     }
 }
+
+function toggleDarkMode() {
+    const body = document.body;
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    body.classList.toggle('dark-mode');
+    if (body.classList.contains('dark-mode')) {
+        darkModeToggle.classList.remove('fa-moon');
+        darkModeToggle.classList.add('fa-sun');
+    } else {
+        darkModeToggle.classList.remove('fa-sun');
+        darkModeToggle.classList.add('fa-moon');
+    }
+}
