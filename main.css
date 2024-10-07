@@ -112,3 +112,50 @@ button:focus {
 #viewPassword:disabled {
     background-color: #4a4d4b;
 }
+
+/* Dark mode styling */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+#container.dark-mode {
+    background-color: #1e1e1e;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+}
+
+button.dark-mode {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+button.dark-mode:hover {
+    background-color: #444444;
+}
+
+button.dark-mode:active {
+    background-color: #555555;
+}
+
+button.dark-mode:focus {
+    outline: none;
+}
+
+#password.dark-mode {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+#backup-version.dark-mode {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+#password-label.dark-mode,
+#backup-label.dark-mode {
+    color: #ffffff;
+}
+
+h1.dark-mode {
+    color: #ffffff;
+}
